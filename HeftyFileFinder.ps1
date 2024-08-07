@@ -18,7 +18,7 @@ $verboseSuccess = $false
 $verboseFails   = $true
 $verboseSkips   = $true
 
-$logSuccess = $true
+$logSuccess = $false
 $logFails   = $true
 $logSkips   = $true
 
@@ -252,11 +252,44 @@ function ExportHTML {
             .active {
                 display: block;
             }
+          
+           /*             
+             Icons css classes
+            Replace with your own using icons from iconfy api, replacing the content of the icon classes.
+            The current icons can be accessed with the following  api call:
+
+            https://api.iconify.design/mdi.css?icons=file-document-outline,folder,folder-open
+            
+            To Change the size and space between the icon and the text, modify to your taste the width, height and margin-right in the icon class
+
+             */
+
             .icon {
+                display: inline-block;
                 width: 1.5em;
                 height: 1.5em;
                 margin-right: 10px;
+                background-color: currentColor;
+                -webkit-mask-image: var(--svg);
+                mask-image: var(--svg);
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
             }
+
+            .icon-file {
+                 --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2h7v5h5v11H6zm2 8v2h8v-2zm0 4v2h5v-2z'/%3E%3C/svg%3E");
+            }
+
+            .icon-folder {
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z'/%3E%3C/svg%3E");
+            }
+
+            .icon-folder-open {
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5'/%3E%3C/svg%3E");
+            }
+
         </style>
     </head>
     <body>
@@ -271,12 +304,13 @@ function ExportHTML {
                 dir.addEventListener('click', function() {
                     const nested = this.nextElementSibling;
                     nested.classList.toggle('active');
-                    const icon = this.querySelector('img.icon');
+                    const icon = this.querySelector('span.icon');
                     const occupancyIndex = parseFloat(this.getAttribute('occupancy-index'));
                     if (nested.classList.contains('active')) {
-                        icon.src = ``icons/grad`${occupancyIndex}/folderOpen.png``;
+                        icon.classList.remove('icon-folder');
+                        icon.classList.add('icon-folder-open');
                     } else {
-                        icon.src = ``icons/grad`${occupancyIndex}/folder.png``;
+                        icon.classList.remove('icon-folder-open');icon.classList.add('icon-folder');
                     }
                 });
             });
@@ -299,8 +333,7 @@ function ExportHTML {
         $occupancyColor = GetGradient -Value $occupancyIndex
 
         if ($CurrentPathObject.isDirectory) {
-            
-            $htmlBuilder.Append("<div class='directory' occupancy-index='$occupancyIndex'>$Indent<img src='icons/grad$occupancyIndex/folder.png' class='icon'><span style='color: $occupancyColor;'>$($CurrentPathObject.path)<b>&nbsp;[SIZE] $([Math]::Round($CurrentPathObject.size / 1MB, 2)) MB [OCCUPANCY] $occupancy%</span></b></div>`n<div class='nested'>`n") | Out-Null
+            $htmlBuilder.Append("<div class='directory' occupancy-index='$occupancyIndex'>$Indent<span class='icon icon-folder' style='color: $occupancyColor;' ></span><span style='color: $occupancyColor;'>$($CurrentPathObject.path)<b>&nbsp;[SIZE] $([Math]::Round($CurrentPathObject.size / 1MB, 2)) MB [OCCUPANCY] $occupancy%</span></b></div>`n<div class='nested'>`n") | Out-Null
             foreach ($pathObject in $CurrentPathObject.subPaths) {
                 Recurse -CurrentPathObject $pathObject -Indent ($Indent + "&nbsp;&nbsp;&nbsp;&nbsp;")
             }
@@ -308,7 +341,7 @@ function ExportHTML {
 
         } else {
 
-            $htmlBuilder.Append("<div class='file'>$Indent<img src='icons/grad$occupancyIndex/file.png' class='icon'><span style='color: $occupancyColor;'>$($CurrentPathObject.path) <b> [SIZE] $([Math]::Round($CurrentPathObject.size / 1MB, 2)) MB [OCCUPANCY] $([Math]::Round($CurrentPathObject.occupancy, 2))%</span></b></div>`n") | Out-Null
+            $htmlBuilder.Append("<div class='file'>$Indent<span class='icon icon-file' style='color: $occupancyColor;'></span><span style='color: $occupancyColor;'>$($CurrentPathObject.path) <b> [SIZE] $([Math]::Round($CurrentPathObject.size / 1MB, 2)) MB [OCCUPANCY] $([Math]::Round($CurrentPathObject.occupancy, 2))%</span></b></div>`n") | Out-Null
         }
 
     }
