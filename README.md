@@ -21,25 +21,25 @@ Open PowerShell in a terminal emulator, change the directory to the directory wh
     - *background* - background color for the whole page.
     - *foreground* - color for unstyled text in the page (unused).
     - *header* - color for text in the heder section of the page.
+* **$iconTheme**
+    - Your chosen icon theme, the script comes packed with 5:
+    - **$materialDesignIcons**, **$mingcuteIcon**, **$phosphor**, **$clarity** and **$antDesignIcons**.
 * **$gradient***__<0-9>__*
     - Occupancy colors, 0 is 0% to 9.999...%, 1 is 10% to 19.999...%, 9 is 90% to 100%. This only affects text, not icons.
 
 ## FAQs
-* **Icons are not being displayed in the HTML results file.**
+* **Where can I get new icon themes?**
 >
-The HTML file must be in the same directory as the icons directory. For example, if the icons directory path is *C:\HeftyFileFinder\icons*, the HTML file path must be *C:\HeftyFileFinder\hostname_date_time*.html.
-
-* **How do I change the gradient in icons?**
->
-Create your own icons and import them into the icons directory. The icons directory is composed of subdirectories named 'grad0' to 'grad9', with each containing icons for their respective gradient/occupancy index. All of these subdirectories of the icons directory contain 3 icons named ***folder.png*** (collapsed directory), ***folderOpen.png*** (expanded directory) and ***file.png***.
+You can get them from various places, the ones in the script were obtained from https://icones.js.org/.
+You can also make your own using W3 SVG standard https://www.w3.org/TR/SVG2/.
 
 * **The script is too slow! What do I do?**
 >
-Set ***$verboseSuccess*** and **$logSuccess*** to ***$false***. Still slow? Disable all other verbose and logging settings. Still slow? Your hardware limitations are not my problem.
+Set ***$verboseSuccess*** and **$logSuccess*** to ***$false***. Still slow? Disable all other verbose and logging settings. Still slow? There is always room for improvement, but you are likely running into hardware limitation issues.
 
 * **There is already other software that does this and more.**
 >
-Like any other software that does X. This is a minimalistic, portable, customizable, free and open-source alternative.
+Like any other software that does X. This is a minimalistic, portable, customizable, free and open-source alternative, conceived to run from a shell.
 
 * **Can I run this on Linux, MacOS, etc...?**
 >

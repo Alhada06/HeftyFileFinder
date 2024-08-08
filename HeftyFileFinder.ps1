@@ -28,16 +28,62 @@ $backgroundColor = "#202020"
 $foregroundColor = "#f2f2f2"
 $headerColor     = "#77c387"
 
-$gradient0       = "#F2F2F2"
-$gradient1       = "#F1DFE0"
-$gradient2       = "#F0CCCF"
-$gradient3       = "#EEB9BD"
-$gradient4       = "#EDA6AB"
-$gradient5       = "#EC929A"
-$gradient6       = "#EB7F88"
-$gradient7       = "#E96C76"
-$gradient8       = "#E85965"
-$gradient9       = "#E74653"
+# Icon Themes
+$materialDesignIcons = @(
+    <# SVG Width #> "24",
+    <# SVG Height #> "24",
+    <# SVG Viewbox #> "0 0 24 24",
+    <# File #> "M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2h7v5h5v11H6zm2 8v2h8v-2zm0 4v2h5v-2z",
+    <# Folder #> "M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z",
+    <# Folder Open #> "M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5"
+)
+$mingcuteIcon = @(
+    <# SVG Width #> "32",
+    <# SVG Height #> "32",
+    <# SVG Viewbox #> "0 0 24 24",
+    <# File #> "M18 2a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm-6 11H9a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2m3-5H9a1 1 0 0 0-.117 1.993L9 10h6a1 1 0 0 0 .117-1.993z",
+    <# Folder #> "M2 5a2 2 0 0 1 2-2h5.52a2 2 0 0 1 1.561.75l1.4 1.75H20a2 2 0 0 1 2 2V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z",
+    <# Folder Open #> "M21.328 10a.5.5 0 0 1 .496.563l-.017.08l-2.89 9.644a1 1 0 0 1-.84.706L17.96 21H4a2 2 0 0 1-1.099-.328a.5.5 0 0 1-.026-.234l.017-.082l2.894-9.643a1 1 0 0 1 .839-.706L6.744 10zM9.52 3a2 2 0 0 1 1.443.614l.12.137L12.48 5.5H19a2 2 0 0 1 1.995 1.85L21 7.5V8H6.744A3 3 0 0 0 3.93 9.96l-.06.178L2 16.37V5a2 2 0 0 1 1.85-1.995L4 3z"
+)
+$phosphor = @(
+    <# Width #> "24",
+    <# Height #> "24",
+    <# Viewbox #> "0 0 256 256",
+    <# File #> "m213.66 82.34l-56-56A8 8 0 0 0 152 24H56a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16V88a8 8 0 0 0-2.34-5.66M160 176H96a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16m0-32H96a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16m-8-56V44l44 44Z",
+    <# Folder #> "M232 88v112.89A15.13 15.13 0 0 1 216.89 216H40a16 16 0 0 1-16-16V64a16 16 0 0 1 16-16h53.33a16.12 16.12 0 0 1 9.6 3.2L130.67 72H216a16 16 0 0 1 16 16",
+    <# Folder Open #> "M245 110.64a16 16 0 0 0-13-6.64h-16V88a16 16 0 0 0-16-16h-69.33l-27.73-20.8a16.14 16.14 0 0 0-9.6-3.2H40a16 16 0 0 0-16 16v144a8 8 0 0 0 8 8h179.1a8 8 0 0 0 7.59-5.47l28.49-85.47a16.05 16.05 0 0 0-2.18-14.42M93.34 64l27.73 20.8a16.12 16.12 0 0 0 9.6 3.2H200v16h-53.57a16 16 0 0 0-8.88 2.69l-20 13.31H69.42a15.94 15.94 0 0 0-14.86 10.06L40 166.46V64Z"
+)
+$clarity = @(
+    <# Width #> "32",
+    <# Height #> "32",
+    <# Viewbox #> "0 0 36 36",
+    <# File #> "M21.89 4H7.83A1.88 1.88 0 0 0 6 5.91v24.18A1.88 1.88 0 0 0 7.83 32h20.34A1.88 1.88 0 0 0 30 30.09V11.92ZM21 13V5.84L28.3 13Z",
+    <# Folder #> "M30 9H16.42l-2.31-3.18A2 2 0 0 0 12.49 5H6a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2M6 11V7h6.49l2.72 4Z",
+    <# Folder Open #> "M35.32 13.74a1.71 1.71 0 0 0-1.45-.74h-22.7a2.59 2.59 0 0 0-2.25 1.52a1 1 0 0 0 0 .14L6 25V7h6.49l2.61 3.59a1 1 0 0 0 .81.41H32a2 2 0 0 0-2-2H16.42l-2.31-3.18A2 2 0 0 0 12.49 5H6a2 2 0 0 0-2 2v22.69A1.37 1.37 0 0 0 5.41 31h24.93a1 1 0 0 0 1-.72l4.19-15.1a1.64 1.64 0 0 0-.21-1.44"
+)
+$antDesignIcons = @(
+    <# Width #> "32",
+    <# Height #> "32",
+    <# Viewbox #> "0 0 1024 1024",
+    <# File #> "M854.6 288.7c6 6 9.4 14.1 9.4 22.6V928c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32h424.7c8.5 0 16.7 3.4 22.7 9.4zM790.2 326L602 137.8V326zM320 482a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h384a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8zm0 136a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h184a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8z",
+    <# Folder #> "M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32",
+    <# Folder Open #> "M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2a8.15 8.15 0 0 0-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12c0-17.7-14.3-32-32-32m-180 0H238c-13 0-24.8 7.9-29.7 20L136 643.2V256h188.5l119.6 114.4H748z"
+)
+
+# Icon Settings
+$iconTheme  = $phosphor
+
+# Icon color according to file/directory occupancy index
+$gradient0 = "#F2F2F2"
+$gradient1 = "#F1DFE0"
+$gradient2 = "#F0CCCF"
+$gradient3 = "#EEB9BD"
+$gradient4 = "#EDA6AB"
+$gradient5 = "#EC929A"
+$gradient6 = "#EB7F88"
+$gradient7 = "#E96C76"
+$gradient8 = "#E85965"
+$gradient9 = "#E74653"
 
 
 #================================================================================================================================================#
@@ -223,6 +269,13 @@ function ExportHTML {
         [string]$HTMLPath
     )
 
+    $iconWidth      = $iconTheme[0]
+    $iconHeight     = $iconTheme[1]
+    $iconViewbox    = $iconTheme[2]
+    $iconFile       = $iconTheme[3]
+    $iconFolder     = $iconTheme[4]
+    $iconFolderOpen = $iconTheme[5]
+
     $htmlHeader = @"
     <!DOCTYPE html>
     <html lang='en'>
@@ -253,17 +306,6 @@ function ExportHTML {
                 display: block;
             }
           
-           /*             
-             Icons css classes
-            Replace with your own using icons from iconfy api, replacing the content of the icon classes.
-            The current icons can be accessed with the following  api call:
-
-            https://api.iconify.design/mdi.css?icons=file-document-outline,folder,folder-open
-            
-            To Change the size and space between the icon and the text, modify to your taste the width, height and margin-right in the icon class
-
-             */
-
             .icon {
                 display: inline-block;
                 width: 1.5em;
@@ -279,15 +321,15 @@ function ExportHTML {
             }
 
             .icon-file {
-                 --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2h7v5h5v11H6zm2 8v2h8v-2zm0 4v2h5v-2z'/%3E%3C/svg%3E");
+                 --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='$iconViewbox' width='$iconWidth' height='$iconHeight'%3E%3Cpath fill='black' d='$iconFile'/%3E%3C/svg%3E");
             }
 
             .icon-folder {
-                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z'/%3E%3C/svg%3E");
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='$iconViewbox' width='$iconWidth' height='$iconHeight'%3E%3Cpath fill='black' d='$iconFolder'/%3E%3C/svg%3E");
             }
 
             .icon-folder-open {
-                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5'/%3E%3C/svg%3E");
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='$iconViewbox' width='$iconWidth' height='$iconHeight'%3E%3Cpath fill='black' d='$iconFolderOpen'/%3E%3C/svg%3E");
             }
 
         </style>
